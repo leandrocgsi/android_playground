@@ -1,4 +1,4 @@
-package br.com.erudio.a01_helloandroid;
+package br.com.erudio.helloandroid;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("br.com.erudio.a01_helloandroid", appContext.getPackageName());
+        assertEquals("br.com.erudio.helloandroid", appContext.getPackageName());
     }
 }

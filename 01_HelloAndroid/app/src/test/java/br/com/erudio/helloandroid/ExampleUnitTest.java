@@ -1,4 +1,4 @@
-package br.com.erudio.a01_helloandroid;
+package br.com.erudio.helloandroid;
 
 import org.junit.Test;
 
