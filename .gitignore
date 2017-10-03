@@ -1,0 +1,38 @@
+bin/
+gen/
+out/
+build/
+.idea/workspace.xml
+
+*.iws
+*.iml
+*.ipr
+*.class
+*.pyc
+/*/out
+/*/target
+.project
+.idea/
+.gradle/
+/**/target
+
+/**/classes
+/**/gen/
+/**/out/
+
+# Proguard
+proguard/
+
+# Eclipse
+.classpath
+.settings
+
+# Local properties
+local.properties
+
+# dex file
+.dex
+
+# Application file
+.apk
+.ap_
