@@ -17,4 +17,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.032" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_orange_dark"
+        android:onClick="clickFunction"
+        android:text="New Button"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="82dp" />
+
 </android.support.constraint.ConstraintLayout>
