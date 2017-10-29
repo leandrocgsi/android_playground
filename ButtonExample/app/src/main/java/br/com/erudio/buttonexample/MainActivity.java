@@ -11,7 +11,8 @@ public class MainActivity extends AppCompatActivity {
     public void buttonClicked(View view){
 
         EditText myTextField = (EditText) findViewById(R.id.textField);
-        Log.i("Info", "Hello Leandro");
+        //Log.i("Info", "Hello Leandro");
+        Log.i("Text Field Value", myTextField.getText().toString());
     }
 
     @Override
