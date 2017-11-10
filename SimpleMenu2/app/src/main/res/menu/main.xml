@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/bookmark_menu" 
+          android:title="@string/bookmark"
+          android:showAsAction="ifRoom"/>
+    <item android:id="@+id/save_menu" 
+          android:title="@string/save"
+          android:showAsAction="ifRoom"/>
+    <item android:id="@+id/search_menu"
+          android:title="@string/search"
+          android:showAsAction="ifRoom"/>
+    <item android:id="@+id/share_menu"
+          android:title="@string/share"
+          android:showAsAction="ifRoom"/>
+    <item android:id="@+id/delete_menu" 
+          android:title="@string/delete"
+          android:showAsAction="ifRoom"/>  
+    <item android:id="@+id/print_menu" 
+          android:title="@string/print"
+          android:showAsAction="ifRoom"/> 
+</menu>

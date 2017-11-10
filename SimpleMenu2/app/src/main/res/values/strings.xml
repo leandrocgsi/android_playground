@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Concrete Page</string>
+    <string name="message">Click on menu for Menu Demo</string>     
+    <string name="bookmark">Bookmark</string>
+    <string name="save">Save</string>
+    <string name="search">Search</string>
+    <string name="share">Share</string>
+    <string name="delete">Delete</string>
+    <string name="print">Print</string>                
+</resources> 
