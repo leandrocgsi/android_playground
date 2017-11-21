@@ -49,4 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    
+    //SEE: https://www.developer.com/ws/android/programming/how-to-use-android-data-binding.html
 }
