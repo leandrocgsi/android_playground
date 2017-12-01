@@ -1,6 +1,7 @@
 package br.com.erudio.buttonexample;
 
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.appcompat.*;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
