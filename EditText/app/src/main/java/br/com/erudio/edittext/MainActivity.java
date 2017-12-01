@@ -8,12 +8,14 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = MainActivity.class.getSimpleName();
+
     public void logIn(View view){
         EditText username = (EditText) findViewById(R.id.username);
         EditText password = (EditText) findViewById(R.id.password);
 
-        Log.i("Username", username.getText().toString());
-        Log.i("Password", password.getText().toString());
+        Log.i(TAG + "_Username: ", username.getText().toString());
+        Log.i(TAG + "_Password: ", password.getText().toString());
     }
 
     @Override

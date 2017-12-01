@@ -9,11 +9,13 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = MainActivity.class.getSimpleName();
+
     public void buttonClicked(View view){
 
         EditText myTextField = (EditText) findViewById(R.id.textField);
         //Log.i("Info", "Hello Leandro");
-        Log.i("Text Field Value", myTextField.getText().toString());
+        Log.i(TAG + ": Text Field Value", myTextField.getText().toString());
     }
 
     @Override
