@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,11 +14,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void sayHello(View view){
 
-        EditText etUsername = (EditText) findViewById(R.id.tfName);
-        Log.i("Hello ", etUsername.getText().toString());
+        ImageView image = (ImageView) findViewById(R.id.imageView);
+        image.setImageResource(R.drawable.waterfall2);
 
-        String username = etUsername.getText().toString().toUpperCase();
-        Toast.makeText(getApplicationContext(), "HELLO " + username, Toast.LENGTH_LONG).show();
     }
 
     @Override
