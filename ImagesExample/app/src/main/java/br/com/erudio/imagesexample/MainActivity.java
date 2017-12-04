@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     public void sayHello(View view){
 
         ImageView image = (ImageView) findViewById(R.id.imageView);
-        if(image.getTag() != null && image.getTag().toString().equals("waterfall1")) {
+        if(image.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.waterfall1).getConstantState()) {
             image.setImageResource(R.drawable.waterfall2);
         } else {
             image.setImageResource(R.drawable.waterfall1);
