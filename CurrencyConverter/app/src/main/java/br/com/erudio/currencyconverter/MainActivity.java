@@ -28,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "YOUR VALUE IN EURO IS " + roundToDecimals(convertedValue, 2), Toast.LENGTH_LONG).show();
     }
 
-    public static double roundToDecimals(double d, int c)
-    {
+    public static double roundToDecimals(double d, int c) {
         int temp = (int)(d * Math.pow(10 , c));
         return ((double)temp)/Math.pow(10 , c);
     }
