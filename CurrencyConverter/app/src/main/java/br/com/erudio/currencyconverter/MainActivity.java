@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         double convertedValue = realValue * euroValue;
 
-        Toast.makeText(getApplicationContext(), "YOUR VALUE IN EURO IS " + roundToDecimals(convertedValue, 2), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "YOUR VALUE IN EURO IS €" + roundToDecimals(convertedValue, 2), Toast.LENGTH_LONG).show();
     }
 
     public static double roundToDecimals(double d, int c) {
