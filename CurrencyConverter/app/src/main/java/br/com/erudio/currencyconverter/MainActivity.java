@@ -19,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
         String realStr = realField.getText().toString();
 
         Double euroValue = 0.258906341D;
-        Double realValue = new Double(realStr);
+        Double realValue = 0D;
+        if (realStr != null && !"".equals(realStr)) realValue = new Double(realStr);
 
         Log.i(TAG, realStr);
 
