@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +24,14 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, realStr);
 
         double convertedValue = realValue * euroValue;
-        Toast.makeText(getApplicationContext(), "YOUR VALUE IN EURO IS " + convertedValue, Toast.LENGTH_LONG).show();
+
+        Toast.makeText(getApplicationContext(), "YOUR VALUE IN EURO IS " + roundToDecimals(convertedValue, 2), Toast.LENGTH_LONG).show();
+    }
+
+    public static double roundToDecimals(double d, int c)
+    {
+        int temp = (int)(d * Math.pow(10 , c));
+        return ((double)temp)/Math.pow(10 , c);
     }
 
     @Override
