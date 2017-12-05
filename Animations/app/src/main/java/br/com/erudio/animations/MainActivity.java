@@ -10,7 +10,9 @@ public class MainActivity extends AppCompatActivity {
     public void fade (View view){
         ImageView southPark = (ImageView) findViewById(R.id.iVPulpFictionSouthPark);
 
-        southPark.animate().scaleX(0.5f).scaleY(0.5f).setDuration(2000);
+        southPark.animate().translationXBy(1000f).translationYBy(1000f).rotationBy(3600).setDuration(2000);
+
+        //southPark.animate().scaleX(0.5f).scaleY(0.5f).setDuration(2000);
 
         //southPark.animate().rotation(180f).setDuration(2000);
 
@@ -36,5 +38,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ImageView southPark = (ImageView) findViewById(R.id.iVPulpFictionSouthPark);
+
+        southPark.setTranslationX(-1000f);
+        southPark.setTranslationY(-1000f);
     }
 }
