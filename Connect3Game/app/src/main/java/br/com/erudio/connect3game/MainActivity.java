@@ -6,7 +6,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    public void dropin(View view){
+    public void dropIn(View view){
 
     }
     @Override
