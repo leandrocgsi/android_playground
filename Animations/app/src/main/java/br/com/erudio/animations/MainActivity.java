@@ -9,10 +9,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void fade (View view){
         ImageView southPark = (ImageView) findViewById(R.id.iVPulpFictionSouthPark);
-        ImageView simpson = (ImageView) findViewById(R.id.iVPulpFictionSimpsons);
+
+        southPark.animate().rotation(180f).setDuration(2000);
+
+        //southPark.animate().translationXBy(-1000f).setDuration(2000);
+
+        //southPark.animate().translationYBy(1000f).setDuration(2000);
+
+        /*ImageView simpson = (ImageView) findViewById(R.id.iVPulpFictionSimpsons);
 
         southPark.animate().alpha(0f).setDuration(2000);
-        simpson.animate().alpha(1f).setDuration(2000);
+        simpson.animate().alpha(1f).setDuration(2000);*/
     }
 
     public void fadeBack (View view){
