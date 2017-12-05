@@ -128,7 +128,6 @@
             android:layout_marginLeft="48dp"
             android:layout_marginTop="30dp"
             android:onClick="dropIn"
-            android:tag="8"
-            app:srcCompat="@drawable/red" />
+            android:tag="8"/>
     </GridLayout>
 </RelativeLayout>
