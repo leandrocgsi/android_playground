@@ -7,12 +7,20 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+    Boolean flag = true;
+
     public void dropIn(View view){
 
         ImageView counter = (ImageView) view;
 
         counter.setTranslationY(-1000f);
-        counter.setImageResource(R.drawable.yellow);
+        if (flag) {
+            counter.setImageResource(R.drawable.yellow);
+            flag = false;
+        } else {
+            counter.setImageResource(R.drawable.red);
+            flag = true;
+        }
         counter.animate().translationYBy(1000f).rotation(3600).setDuration(300);
 
 
