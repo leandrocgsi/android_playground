@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,11 +40,17 @@ public class MainActivity extends AppCompatActivity {
 
                 System.out.println(gameState[winningPosition[0]]);
 
+                LinearLayout layout = (LinearLayout) findViewById(R.id.playAgainLayout);
+                layout.setVisibility(View.VISIBLE );
 
             }
         }
     }
-    
+
+    public void playAgain(View view){
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
