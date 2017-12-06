@@ -17,8 +17,6 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView counter = (ImageView) view;
 
-        System.out.println(counter.getTag().toString());
-
         int tappedCounter = Integer.parseInt(counter.getTag().toString());
         if (gameState[tappedCounter] == 2) {
             gameState[tappedCounter] = activePlayer;
@@ -33,7 +31,19 @@ public class MainActivity extends AppCompatActivity {
             }
             counter.animate().translationYBy(1000f).rotation(3600).setDuration(300);
         }
+
+        for (int [] winningPosition : winningPositions) {
+            if (gameState[winningPosition[0]] == gameState[winningPosition[1]] &&
+                gameState[winningPosition[1]] == gameState[winningPosition[2]] &&
+                gameState[winningPosition[0]] != 2) {
+
+                System.out.println(gameState[winningPosition[0]]);
+
+
+            }
+        }
     }
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
