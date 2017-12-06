@@ -7,23 +7,32 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Boolean flag = true;
+    int activePlayer = 0;
+
+    int [] gameState = {2, 2, 2, 2, 2, 2, 2, 2, 2};
+
+    int[][] winningPositions = {{0,1,2}, {3,4,5}, {6,7,8}, {0,3,6}, {1,4,7}, {2,5,8}, {0,4,8}, {2,4,6}};
 
     public void dropIn(View view){
 
         ImageView counter = (ImageView) view;
 
-        counter.setTranslationY(-1000f);
-        if (flag) {
-            counter.setImageResource(R.drawable.yellow);
-            flag = false;
-        } else {
-            counter.setImageResource(R.drawable.red);
-            flag = true;
+        System.out.println(counter.getTag().toString());
+
+        int tappedCounter = Integer.parseInt(counter.getTag().toString());
+        if (gameState[tappedCounter] == 2) {
+            gameState[tappedCounter] = activePlayer;
+
+            counter.setTranslationY(-1000f);
+            if (activePlayer == 0) {
+                counter.setImageResource(R.drawable.yellow);
+                activePlayer = 1;
+            } else {
+                counter.setImageResource(R.drawable.red);
+                activePlayer = 0;
+            }
+            counter.animate().translationYBy(1000f).rotation(3600).setDuration(300);
         }
-        counter.animate().translationYBy(1000f).rotation(3600).setDuration(300);
-
-
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
