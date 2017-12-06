@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView counter = (ImageView) view;
 
         int tappedCounter = Integer.parseInt(counter.getTag().toString());
-        if (gameState[tappedCounter] == 2) {
+        if (gameState[tappedCounter] == 2 && gameIsActive) {
             gameState[tappedCounter] = activePlayer;
 
             counter.setTranslationY(-1000f);
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 gameState[winningPosition[0]] != 2) {
 
                 gameIsActive = false;
-                
+
                 String winner = "Red";
                 if (gameState[winningPosition[0]] == 0) {
                     winner = "Yellow";
@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void playAgain(View view){
+        gameIsActive = true;
+
         LinearLayout layout = (LinearLayout) findViewById(R.id.playAgainLayout);
         layout.setVisibility(View.INVISIBLE );
 
