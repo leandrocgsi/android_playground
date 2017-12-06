@@ -11,9 +11,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     int activePlayer = 0;
-
     boolean gameIsActive = true;
-
+    String winnerMessage = "";
     int [] gameState = {2, 2, 2, 2, 2, 2, 2, 2, 2};
 
     int[][] winningPositions = {{0,1,2}, {3,4,5}, {6,7,8}, {0,3,6}, {1,4,7}, {2,5,8}, {0,4,8}, {2,4,6}};
@@ -51,12 +50,9 @@ public class MainActivity extends AppCompatActivity {
 
                 System.out.println(gameState[winningPosition[0]]);
 
-                TextView winnerMessage = (TextView) findViewById(R.id.winnerMessage);
+                winnerMessage = winner + " Has won!";
 
-                winnerMessage.setText(winner + " Has won!");
-
-                LinearLayout layout = (LinearLayout) findViewById(R.id.playAgainLayout);
-                layout.setVisibility(View.VISIBLE );
+                displayMessage();
 
             } else {
                 boolean gameIsOver = true;
@@ -65,15 +61,20 @@ public class MainActivity extends AppCompatActivity {
                     if (counterState == 2) gameIsOver = false;
                 }
                 if(gameIsOver){
-                    TextView winnerMessage = (TextView) findViewById(R.id.winnerMessage);
-
-                    winnerMessage.setText("It's a draw!");
-
-                    LinearLayout layout = (LinearLayout) findViewById(R.id.playAgainLayout);
-                    layout.setVisibility(View.VISIBLE );
+                    winnerMessage = "It's a draw!";
+                    displayMessage("It's a draw!");
                 }
             }
         }
+    }
+
+    private void displayMessage(String winnerMessage) {
+        TextView tvWinnerMessage = (TextView) findViewById(R.id.winnerMessage);
+
+        tvWinnerMessage.setText(winnerMessage);
+
+        LinearLayout layout = (LinearLayout) findViewById(R.id.playAgainLayout);
+        layout.setVisibility(View.VISIBLE );
     }
 
     public void playAgain(View view){
