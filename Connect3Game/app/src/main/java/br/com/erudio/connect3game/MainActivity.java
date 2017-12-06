@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
 
     int activePlayer = 0;
     boolean gameIsActive = true;
-    String winnerMessage = "";
     int [] gameState = {2, 2, 2, 2, 2, 2, 2, 2, 2};
 
     int[][] winningPositions = {{0,1,2}, {3,4,5}, {6,7,8}, {0,3,6}, {1,4,7}, {2,5,8}, {0,4,8}, {2,4,6}};
@@ -50,9 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
                 System.out.println(gameState[winningPosition[0]]);
 
-                winnerMessage = winner + " Has won!";
-
-                displayMessage();
+                displayMessage(winner + " Has won!");
 
             } else {
                 boolean gameIsOver = true;
@@ -61,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
                     if (counterState == 2) gameIsOver = false;
                 }
                 if(gameIsOver){
-                    winnerMessage = "It's a draw!";
                     displayMessage("It's a draw!");
                 }
             }
