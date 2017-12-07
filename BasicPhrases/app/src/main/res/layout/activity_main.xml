@@ -18,6 +18,7 @@
             android:layout_gravity="fill"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
+            android:onClick="buttonTapped"
             android:text="Hello"
             android:id="@+id/hello" />
 
@@ -30,6 +31,7 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:text="How Are You"
+            android:onClick="buttonTapped"
             android:id="@+id/howareyou"/>
 
         <Button
@@ -40,6 +42,7 @@
             android:layout_gravity="fill"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
+            android:onClick="buttonTapped"
             android:text="Good Evening"
             android:id="@+id/goodevening" />
 
@@ -51,6 +54,7 @@
             android:layout_gravity="fill"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
+            android:onClick="buttonTapped"
             android:text="Please"
             android:id="@+id/please" />
 
@@ -62,6 +66,7 @@
             android:layout_gravity="fill"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
+            android:onClick="buttonTapped"
             android:text="My Name Is ..."
             android:id="@+id/mynameis" />
 
@@ -73,7 +78,8 @@
             android:layout_gravity="fill"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:text="Do You Speak English?"
+            android:onClick="buttonTapped"
+            android:text="Do You &#10;Speak English?"
             android:id="@+id/doyouspeakenglish" />
 
         <Button
@@ -84,6 +90,7 @@
             android:layout_gravity="fill"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
+            android:onClick="buttonTapped"
             android:text="Welcome"
             android:id="@+id/welcome" />
 
@@ -95,6 +102,7 @@
             android:layout_gravity="fill"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
+            android:onClick="buttonTapped"
             android:text="I Live In ..."
             android:id="@+id/ilivein" />
 
