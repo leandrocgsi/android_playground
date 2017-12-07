@@ -23,5 +23,23 @@
         android:layout_alignParentStart="true"
         app:srcCompat="@drawable/egg_smiling" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/go"
+        android:layout_centerHorizontal="true"
+        android:text="00:30"
+        android:textSize="70sp" />
+
+    <Button
+        android:id="@+id/go"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp"
+        android:text="GO!" />
+
 
 </RelativeLayout>
