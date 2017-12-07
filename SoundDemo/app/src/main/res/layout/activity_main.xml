@@ -7,4 +7,24 @@
     tools:context="br.com.erudio.sounddemo.MainActivity">
 
 
+    <Button
+        android:id="@+id/playButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:onClick="playAudio"
+        android:text="PLAY" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/playButton"
+        android:layout_alignStart="@+id/playButton"
+        android:layout_below="@+id/playButton"
+        android:layout_marginTop="31dp"
+        android:onClick="pauseAudio"
+        android:text="PAUSE" />
 </RelativeLayout>
