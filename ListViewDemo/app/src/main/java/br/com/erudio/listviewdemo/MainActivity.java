@@ -27,11 +27,14 @@ public class MainActivity extends AppCompatActivity {
 
         ListView myListView = (ListView)findViewById(R.id.myListView);
 
+        final ArrayList<String> family = new ArrayList<String>(asList("Dan McCafferty", "Manny Charlton", "Pete Agnew", "Darrel Sweet"));
+        /*
         final ArrayList<String> family = new ArrayList<String>();
         family.add("Hommer Simpson");
         family.add("Bart Simpson");
         family.add("Lisa Simpson");
         family.add("Mr. Burns");
+        */
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, family);
 
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedPerson = family.get(position);
                 Log.i(TAG + " Selected person is: ", selectedPerson);
-                Toast.makeText(getApplicationContext(), "HELLO " + selectedPerson, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "HELLO " + selectedPerson.toUpperCase(), Toast.LENGTH_LONG).show();
             }
         });
 
