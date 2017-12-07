@@ -75,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 Log.i("SeekBar position value", Integer.toString(progress));
-                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0);
-                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0);
+
+                mediaPlayer.seekTo(progress);
             }
 
             @Override
