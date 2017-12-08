@@ -13,6 +13,12 @@ public class MainActivity extends AppCompatActivity {
         startButton.setVisibility(View.INVISIBLE);
     }
 
+    public void chooseAnswer(View view){
+    }
+
+    public void playAgain(View view){
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
