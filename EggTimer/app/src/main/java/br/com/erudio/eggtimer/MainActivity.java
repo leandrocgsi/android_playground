@@ -20,9 +20,7 @@ public class MainActivity extends AppCompatActivity {
         int seconds = secondsLeft - minutes * 60;
 
         String secondString = Integer.toString(seconds);
-        if(seconds == 0) {
-            secondString = "00:00";
-        } else if (seconds < 10) {
+        if (seconds < 10) {
             secondString = "0" + Integer.toString(seconds);
         }
 
