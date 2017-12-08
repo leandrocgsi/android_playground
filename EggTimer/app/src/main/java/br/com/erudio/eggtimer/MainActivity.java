@@ -2,6 +2,8 @@ package br.com.erudio.eggtimer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -42,5 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void controlTimer (View view){
+
+        Log.i(TAG + " Button pressed ! ", "Pressed");
     }
 }
