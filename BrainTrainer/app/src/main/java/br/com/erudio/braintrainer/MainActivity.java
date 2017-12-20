@@ -16,7 +16,9 @@ public class MainActivity extends AppCompatActivity {
 
     Button startButton;
     ArrayList<Integer> answers = new ArrayList<>();
+    TextView resultTextView;
     int locationOfCorrectanswer;
+    int score = 0;
 
     public void start(View view){
         startButton.setVisibility(View.INVISIBLE);
@@ -24,6 +26,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void chooseAnswer(View view){
         Log.i(TAG + " Button pressed ! ", (String) view.getTag());
+        if (view.getTag().toString().equals(Integer.toString(locationOfCorrectanswer))) {
+            Log.i(TAG + " Correct ! ", "Correct");
+            score++;
+            resultTextView.setText("Correct");
+        } else {
+            resultTextView.setText("Wrong");
+        }
     }
 
     public void playAgain(View view){
@@ -41,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         Button button1 = (Button) findViewById(R.id.button1);
         Button button2 = (Button) findViewById(R.id.button2);
         Button button3 = (Button) findViewById(R.id.button3);
+
+        resultTextView = (TextView) findViewById(R.id.resultTextView);
 
         Random rand = new Random();
 
