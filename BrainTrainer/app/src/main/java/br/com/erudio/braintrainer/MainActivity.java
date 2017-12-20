@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
         generateQuestion();
 
+        playAgain(findViewById(R.id.playAgainButton));
 
     }
 }
