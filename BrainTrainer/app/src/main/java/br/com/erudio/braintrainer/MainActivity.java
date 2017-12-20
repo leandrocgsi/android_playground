@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Button button1;
     Button button2;
     Button button3;
+    Button playAgain;
 
     TextView sumTextView;
     TextView timerTextView;
@@ -82,7 +83,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void playAgain(View view){
+        score = 0;
+        numberOfQuestions = 0;
 
+        timerTextView.setText("30s");
+        pointsTextView.setText("0/0");
+        resultTextView.setText("");
+        playAgain.setVisibility(View.INVISIBLE);
+
+        new CountDownTimer(30100, 1000){
+
+            @Override
+            public void onTick(long millisecondsUntilFinished) {
+                timerTextView.setText(String.valueOf(millisecondsUntilFinished / 1000) + "s");
+            }
+
+            @Override
+            public void onFinish() {
+                playAgain.setVisibility(View.VISIBLE);
+                timerTextView.setText("0s");
+                resultTextView.setText("Your score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions)) ;
+            }
+
+        }.start();
     }
 
     @Override
@@ -96,25 +119,15 @@ public class MainActivity extends AppCompatActivity {
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
+
+        playAgain = (Button) findViewById(R.id.playAgainButton);
+
         resultTextView = (TextView) findViewById(R.id.resultTextView);
         pointsTextView = (TextView) findViewById(R.id.pointsTextView);
         timerTextView = (TextView) findViewById(R.id.timerTextView);
 
         generateQuestion();
 
-        new CountDownTimer(30100, 1000){
 
-            @Override
-            public void onTick(long millisecondsUntilFinished) {
-                timerTextView.setText(String.valueOf(millisecondsUntilFinished / 1000) + "s");
-            }
-
-            @Override
-            public void onFinish() {
-                timerTextView.setText("0s");
-                resultTextView.setText("Your score");
-            }
-
-        };
     }
 }
