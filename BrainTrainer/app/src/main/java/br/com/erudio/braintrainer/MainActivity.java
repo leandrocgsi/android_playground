@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     Button button2;
     Button button3;
     Button playAgain;
+
+    RelativeLayout gameRelativeLayout;
 
     TextView sumTextView;
     TextView timerTextView;
@@ -66,6 +69,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void start(View view){
         startButton.setVisibility(View.INVISIBLE);
+        gameRelativeLayout.setVisibility(RelativeLayout.VISIBLE);
+
+        playAgain(findViewById(R.id.playAgainButton));
     }
 
     public void chooseAnswer(View view){
@@ -126,9 +132,9 @@ public class MainActivity extends AppCompatActivity {
         pointsTextView = (TextView) findViewById(R.id.pointsTextView);
         timerTextView = (TextView) findViewById(R.id.timerTextView);
 
-        generateQuestion();
+        gameRelativeLayout = (RelativeLayout) findViewById(R.id.gameRelativeLayout);
 
-        playAgain(findViewById(R.id.playAgainButton));
+
 
     }
 }
