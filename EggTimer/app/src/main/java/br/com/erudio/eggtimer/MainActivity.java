@@ -15,7 +15,7 @@ import static android.os.SystemClock.sleep;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+        private static final String TAG = MainActivity.class.getSimpleName();
 
     SeekBar timerSeekBar;
     TextView timerTextView;
