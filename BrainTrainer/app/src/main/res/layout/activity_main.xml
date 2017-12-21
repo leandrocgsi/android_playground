@@ -37,19 +37,15 @@
         android:padding="10dp" />
 
         <TextView
-            android:id="@+id/pointsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/timerTextView"
-            android:layout_alignBottom="@+id/timerTextView"
-            android:layout_marginLeft="17dp"
-            android:layout_marginStart="17dp"
-            android:layout_toEndOf="@+id/startButton"
-            android:layout_toRightOf="@+id/startButton"
-            android:background="@color/orange"
-            android:padding="10dp"
             android:text="0/0"
-            android:textSize="30sp" />
+            android:id="@+id/pointsTextView"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:textSize="30sp"
+            android:padding="10dp"
+            android:background="@color/orange"/>
 
         <TextView
             android:id="@+id/sumTextView"

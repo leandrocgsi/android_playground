@@ -35,6 +35,32 @@ public class MainActivity extends AppCompatActivity {
     TextView sumTextView;
     TextView timerTextView;
 
+    public void playAgain(View view){
+        score = 0;
+        numberOfQuestions = 0;
+
+        timerTextView.setText("30s");
+        pointsTextView.setText("0/0");
+        resultTextView.setText("");
+        playAgain.setVisibility(View.INVISIBLE);
+
+        new CountDownTimer(30100, 1000){
+
+            @Override
+            public void onTick(long millisecondsUntilFinished) {
+                timerTextView.setText(String.valueOf(millisecondsUntilFinished / 1000) + "s");
+            }
+
+            @Override
+            public void onFinish() {
+                playAgain.setVisibility(View.VISIBLE);
+                timerTextView.setText("0s");
+                resultTextView.setText("Your score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions)) ;
+            }
+
+        }.start();
+    }
+
     public void generateQuestion() {
         Random rand = new Random();
 
@@ -67,13 +93,6 @@ public class MainActivity extends AppCompatActivity {
         button3.setText(Integer.toString(answers.get(3)));
     }
 
-    public void start(View view){
-        startButton.setVisibility(View.INVISIBLE);
-        gameRelativeLayout.setVisibility(RelativeLayout.VISIBLE);
-
-        playAgain(findViewById(R.id.playAgainButton));
-    }
-
     public void chooseAnswer(View view){
         Log.i(TAG + " Button pressed ! ", (String) view.getTag());
         if (view.getTag().toString().equals(Integer.toString(locationOfCorrectanswer))) {
@@ -88,30 +107,11 @@ public class MainActivity extends AppCompatActivity {
         generateQuestion();
     }
 
-    public void playAgain(View view){
-        score = 0;
-        numberOfQuestions = 0;
+    public void start(View view){
+        startButton.setVisibility(View.INVISIBLE);
+        gameRelativeLayout.setVisibility(RelativeLayout.VISIBLE);
 
-        timerTextView.setText("30s");
-        pointsTextView.setText("0/0");
-        resultTextView.setText("");
-        playAgain.setVisibility(View.INVISIBLE);
-
-        new CountDownTimer(30100, 1000){
-
-            @Override
-            public void onTick(long millisecondsUntilFinished) {
-                timerTextView.setText(String.valueOf(millisecondsUntilFinished / 1000) + "s");
-            }
-
-            @Override
-            public void onFinish() {
-                playAgain.setVisibility(View.VISIBLE);
-                timerTextView.setText("0s");
-                resultTextView.setText("Your score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions)) ;
-            }
-
-        }.start();
+        playAgain(findViewById(R.id.playAgainButton));
     }
 
     @Override
@@ -134,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
 
         gameRelativeLayout = (RelativeLayout) findViewById(R.id.gameRelativeLayout);
 
-
-
+        generateQuestion();
     }
 }
