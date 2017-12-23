@@ -7,6 +7,8 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+	private static final String TAG = MainActivity.class.getSimpleName();
+
     public void fade (View view){
         ImageView southPark = (ImageView) findViewById(R.id.iVPulpFictionSouthPark);
 
