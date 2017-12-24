@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+	private static final String TAG = MainActivity.class.getSimpleName();
+
     int activePlayer = 0;
     boolean gameIsActive = true;
     int [] gameState = {2, 2, 2, 2, 2, 2, 2, 2, 2};
