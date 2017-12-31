@@ -15,6 +15,8 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
+	private static final String TAG = MainActivity.class.getSimpleName();
+
     MediaPlayer mediaPlayer;
     AudioManager audioManager;
 
