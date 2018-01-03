@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpRetryException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -23,15 +25,34 @@ public class MainActivity extends AppCompatActivity {
 
             URL url;
             HttpURLConnection urlConnection = null;
-            
-            try {
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
 
             Log.i(TAG + " Website URL:  ", params[0]);
-            return "Done";
+
+            try {
+                url = new URL(params[0]);
+
+                urlConnection = (HttpURLConnection) url.openConnection();
+
+                InputStream inputStream = urlConnection.getInputStream();
+
+                InputStreamReader reader = new InputStreamReader(inputStream);
+
+                int data = reader.read();
+
+                while (data != -1) {
+                    char current = (char) data;
+
+                    result += current;
+
+                    data = reader.read();
+                }
+
+                return result;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "Failed!";
+            }
+
         }
     }
     @Override
