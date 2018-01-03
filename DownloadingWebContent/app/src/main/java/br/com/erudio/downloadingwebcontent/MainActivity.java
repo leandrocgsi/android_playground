@@ -24,6 +24,6 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG + " Button pressed ! ", "");
 
         DownloadTask task = new DownloadTask();
-        task.execute("https://www.ecowebhosting.co.uk/");
+        task.execute("https://www.ecowebhosting.co.uk/", "https://stackoverflow.com");
     }
 }
