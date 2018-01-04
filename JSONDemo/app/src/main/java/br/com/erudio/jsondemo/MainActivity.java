@@ -5,6 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -27,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             URL url;
             HttpURLConnection urlConnection = null;
 
-            Log.i(TAG + " Website URL:  ", urls[0]);
+            //Log.i(TAG + " Website URL:  ", urls[0]);
 
             try {
                 url = new URL(urls[0]);
@@ -65,7 +69,25 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
 
-            Log.i(TAG + " Website Content:  ", result);
+            String weather = "";
+
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+
+                weather = jsonObject.getString("weather");
+
+                JSONArray arr = new JSONArray(weather);
+
+                for (int i = 0; i < arr.length(); i++) {
+                    JSONObject jsonPart = arr.getJSONObject(i);
+
+                    Log.i(TAG + " Main: ", jsonPart.getString("main"));
+                    Log.i(TAG + " Description: ", jsonPart.getString("description"));
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
