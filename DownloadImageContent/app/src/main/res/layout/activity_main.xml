@@ -22,7 +22,6 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/button"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        android:layout_below="@+id/button"/>
 
 </RelativeLayout>
