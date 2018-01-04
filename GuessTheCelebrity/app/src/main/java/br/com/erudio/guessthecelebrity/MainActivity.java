@@ -1,30 +1,28 @@
 package br.com.erudio.guessthecelebrity;
 
-        import android.app.Activity;
-        import android.graphics.Bitmap;
-        import android.graphics.BitmapFactory;
-        import android.os.AsyncTask;
-        import android.os.Bundle;
-        import android.util.Log;
-        import android.view.Menu;
-        import android.view.MenuItem;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.ImageView;
-        import android.widget.Toast;
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-        import java.io.IOException;
-        import java.io.InputStream;
-        import java.io.InputStreamReader;
-        import java.net.HttpURLConnection;
-        import java.net.MalformedURLException;
-        import java.net.URL;
-        import java.util.ArrayList;
-        import java.util.Random;
-        import java.util.concurrent.ExecutionException;
-        import java.util.regex.Matcher;
-        import java.util.regex.Pattern;
-
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.concurrent.ExecutionException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainActivity extends Activity {
 
@@ -40,7 +38,7 @@ public class MainActivity extends Activity {
     Button button2;
     Button button3;
 
-    public void celebrityChosen (View view) {
+    public void celebrityChosen(View view) {
 
         if (view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))) {
 
@@ -152,29 +150,30 @@ public class MainActivity extends Activity {
 
         try {
 
-            result = task.execute("http://www.posh24.com/celebrities").get();
+            if (result != null) {
+                result = task.execute("http://www.posh24.com/celebrities").get();
 
-            String[] splitResult = result.split("<div class=\"sidebarContainer\">");
+                String[] splitResult = result.split("<div class=\"sidebarContainer\">");
 
-            Pattern p = Pattern.compile("<img src=\"(.*?)\"");
-            Matcher m = p.matcher(splitResult[0]);
+                Pattern p = Pattern.compile("<img src=\"(.*?)\"");
+                Matcher m = p.matcher(splitResult[0]);
 
-            while (m.find()) {
+                while (m.find()) {
 
-                celebURLs.add(m.group(1));
+                    celebURLs.add(m.group(1));
+
+                }
+
+                p = Pattern.compile("alt=\"(.*?)\"");
+                m = p.matcher(splitResult[0]);
+
+                while (m.find()) {
+
+                    celebNames.add(m.group(1));
+
+                }
 
             }
-
-            p = Pattern.compile("alt=\"(.*?)\"");
-            m = p.matcher(splitResult[0]);
-
-            while (m.find()) {
-
-                celebNames.add(m.group(1));
-
-            }
-
-
         } catch (InterruptedException e) {
 
             e.printStackTrace();
@@ -192,7 +191,7 @@ public class MainActivity extends Activity {
     public void createNewQuestion() {
 
         Random random = new Random();
-        chosenCeleb = random.nextInt(celebURLs.size());
+        chosenCeleb = random.nextInt(celebURLs.size() > 0 ? celebURLs.size() : 1);
 
         ImageDownloader imageTask = new ImageDownloader();
 
