@@ -1,11 +1,14 @@
 package br.com.erudio.wathstheweather;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     EditText cityName;
+    TextView weatherTextView;
 
     public class DownloadTask extends AsyncTask<String, Void, String> {
 
@@ -74,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(result);
 
             String weather = "";
+            String message = "";
 
             try {
                 JSONObject jsonObject = new JSONObject(result);
@@ -85,8 +90,19 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i < arr.length(); i++) {
                     JSONObject jsonPart = arr.getJSONObject(i);
 
-                    Log.i(TAG + " Main: ", jsonPart.getString("main"));
-                    Log.i(TAG + " Description: ", jsonPart.getString("description"));
+                    String main = jsonPart.getString("main");
+                    String description = jsonPart.getString("description");
+
+                    /*Log.i(TAG + " Main: ", jsonPart.getString("main"));
+                    Log.i(TAG + " Description: ", jsonPart.getString("description"));*/
+
+                    if (main != null && !"".equals(main) && description != null && !"".equals(description)) {
+                        message += main + " : " + description + "\r\n";
+                    }
+                }
+
+                if (!"".equals(message)) {
+                    weatherTextView.setText(message);
                 }
 
             } catch (JSONException e) {
@@ -96,6 +112,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void findWeather(View view) {
         Log.i("City Name: ", cityName.getText().toString());
+
+        InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        manager.hideSoftInputFromWindow(cityName.getWindowToken(), 0);
 
         DownloadTask task = new DownloadTask();
         String result = null;
@@ -114,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         cityName = (EditText) findViewById(R.id.cityName);
-
+        weatherTextView = (TextView) findViewById(R.id.weatherResult);
 
     }
 }
