@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,9 +18,11 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
@@ -103,9 +106,12 @@ public class MainActivity extends AppCompatActivity {
 
                 if (!"".equals(message)) {
                     weatherTextView.setText(message);
+                } else {
+                    displayMessage();
                 }
 
             } catch (JSONException e) {
+                displayMessage();
                 e.printStackTrace();
             }
         }
@@ -116,13 +122,23 @@ public class MainActivity extends AppCompatActivity {
         InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         manager.hideSoftInputFromWindow(cityName.getWindowToken(), 0);
 
-        DownloadTask task = new DownloadTask();
-        String result = null;
         try {
-            result = task.execute("http://samples.openweathermap.org/data/2.5/weather?q=" + cityName.getText().toString() + "&appid=b6907d289e10d714a6e88b30761fae22").get();
+            String encodedCityName = URLEncoder.encode(cityName.getText().toString(), "UTF-8");
+            DownloadTask task = new DownloadTask();
+            String result = null;
+            String urlAddress = "http://samples.openweathermap.org/data/2.5/weather?q=" + encodedCityName + "&appid=b6907d289e10d714a6e88b30761fae22";
+            result = task.execute(urlAddress).get();
+        } catch (UnsupportedEncodingException e) {
+            displayMessage();
+            e.printStackTrace();
         } catch (InterruptedException e) {
+            displayMessage();
             e.printStackTrace();
         } catch (ExecutionException e) {
+            displayMessage();
+            e.printStackTrace();
+        } catch (Exception e) {
+            displayMessage();
             e.printStackTrace();
         }
     }
@@ -135,5 +151,9 @@ public class MainActivity extends AppCompatActivity {
         cityName = (EditText) findViewById(R.id.cityName);
         weatherTextView = (TextView) findViewById(R.id.weatherResult);
 
+    }
+
+    public void displayMessage(){
+        Toast.makeText(getApplicationContext(), "Could not find weather", Toast.LENGTH_LONG);
     }
 }
