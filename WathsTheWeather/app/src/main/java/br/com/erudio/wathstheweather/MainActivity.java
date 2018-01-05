@@ -17,6 +17,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -95,6 +96,16 @@ public class MainActivity extends AppCompatActivity {
     }
     public void findWeather(View view) {
         Log.i("City Name: ", cityName.getText().toString());
+
+        DownloadTask task = new DownloadTask();
+        String result = null;
+        try {
+            result = task.execute("http://samples.openweathermap.org/data/2.5/weather?q=" + cityName.getText().toString() + "&appid=b6907d289e10d714a6e88b30761fae22").get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -103,5 +114,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         cityName = (EditText) findViewById(R.id.cityName);
+
+
     }
 }
