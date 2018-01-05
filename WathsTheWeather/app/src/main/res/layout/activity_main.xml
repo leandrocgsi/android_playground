@@ -28,7 +28,7 @@
         android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/cityName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -36,14 +36,29 @@
         android:layout_below="@+id/textView"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:text="" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/cityName"
         android:onClick="findWeather"
-        android:text="Button" />
+        android:text="What's The Weather?" />
+
+
+    <TextView
+        android:id="@+id/weatherResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="77dp"
+        android:text=""
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp" />
+
 </RelativeLayout>
