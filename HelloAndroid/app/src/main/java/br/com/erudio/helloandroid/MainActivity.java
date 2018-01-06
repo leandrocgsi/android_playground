@@ -7,6 +7,8 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+	private static final String TAG = MainActivity.class.getSimpleName();
+
     public void clickFunction(View view){
 
         Log.i("Info", "Button Tapped");
