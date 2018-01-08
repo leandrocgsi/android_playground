@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    
+
     public void findWeather(View view) {
         Log.i("City Name: ", cityName.getText().toString());
 
