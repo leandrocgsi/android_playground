@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     public class DownloadTask extends AsyncTask<String, Void, String> {
 
+        //https://openweathermap.org
         @Override
         protected String doInBackground(String... urls) {
 
@@ -116,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    
     public void findWeather(View view) {
         Log.i("City Name: ", cityName.getText().toString());
 
